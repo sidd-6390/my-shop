@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SIDD COLLECTION</title>
+  <style>
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f5f5;
+      margin: 0;
+      padding: 20px;
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 10px;
+    }
+    #cart-count {
+      font-weight: bold;
+      color: red;
+    }
+    #datetime {
+      text-align: center;
+      font-size: 16px;
+      margin-bottom: 20px;
+      color: #333;
+    }
+    #typing-text {
+      text-align: center;
+      font-size: 20px;
+      font-weight: bold;
+      color: #007bff;
+      margin-bottom: 15px;
+      height: 25px;
+    }
+    .top-buttons {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .top-buttons button {
+      padding: 10px 15px;
+      background: #28a745;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin: 5px;
+    }
+    .top-buttons button:hover {
+      background: #1e7e34;
+    }
+    .products {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 15px;
+    }
+    .product {
+      background: #fff;
+      padding: 15px;
+      border-radius: 10px;
+      text-align: center;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .product img {
+      width: 150px;
+      height: 150px;
+    }
+    .product h3 {
+      margin: 10px 0;
+    }
+    button {
+      padding: 8px 12px;
+      background: #007bff;
+      border: none;
+      border-radius: 5px;
+      color: white;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #0056b3;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Live Typing -->
+  <div id="typing-text"></div>
+
+  <!-- Live Date and Time -->
+  <div id="datetime"></div>
+
+  <!-- Cart Info -->
+  <h1>🛍️ SIDD COLLECTION (<span id="cart-count">0</span>)</h1>
+   <div class="logo">👕 Sidd Collection</div>
+    <div class="search-bar">
+      <input type="text" id="searchBox" placeholder="Search for T-Shirts...">
+    </div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="second.html">Page 2</a>
+      <a href="third.html">Page 3</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </div>
+
+  <!-- Top Buttons -->
+  <div class="top-buttons">
+    <button onclick="goToCart()">Go To Cart</button>
+  </div>
+
+  <div class="products">
+    <!-- 25 Products -->
+    <div class="product" data-name="Tshirt 1" data-price="499" data-img="img/t1.png">
+      <img src="img/t1.png" alt="Tshirt 1">
+      <h3>Tshirt 1</h3>
+      <p>₹499</p>
+      <button onclick="addToCart(this)">Add to Cart</button>
+    </div>
+    <div class="product" data-name="Tshirt 2" data-price="599" data-img="img/t2.png">
+      <img src="img/t2.png" alt="Tshirt 2">
+      <h3>Tshirt 2</h3>
+      <p>₹599</p>
+      <button onclick="addToCart(this)">Add to Cart</button>
+    </div>
+    <div class="product" data-name="Tshirt 3" data-price="699" data-img="img/t3.png">
+      <img src="img/t3.png" alt="Tshirt 3">
+      <h3>Tshirt 3</h3>
+      <p>₹699</p>
+      <button onclick="addToCart(this)">Add to Cart</button>
+    </div>
+    <div class="product" data-name="Tshirt 4" data-price="799" data-img="img/t4.png">
+      <img src="img/t4.png" alt="Tshirt 4">
+      <h3>Tshirt 4</h3>
+      <p>₹799</p>
+      <button onclick="addToCart(this)">Add to Cart</button>
+    </div>
+    <div class="product" data-name="Tshirt 5" data-price="899" data-img="img/t5.png">
+      <img src="img/t5.png" alt="Tshirt 5">
+      <h3>Tshirt 5</h3>
+      <p>₹899</p>
+      <button onclick="addToCart(this)">Add to Cart</button>
+    </div>
+    <div class="product" data-name="Shoes 1" data-price="999" data-img="img/s1.png">
+      <img src="img/s1.png" alt="Shoes 1">
+      <h3>Shoes 1</h3>
+      <p>₹999</p>
+      <button onclick="addToCart(this)">Add to Cart</button>
+    </div>
+    <div class="product" data-name="Shoes 2" data-price="1099" data-img="img/s2.png">
+      <img src="img/s2.png" alt="Shoes 2">
+      <h3>Shoes 2</h3>
+      <p>₹1099</p>
+      <button onclick="addToCart(this)">Add to Cart</button>
+    </div>
+    <div class="product" data-name="Shoes 3" data-price="1199" data-img="img/s3.png">
+      <img src="img/s3.png" alt="Shoes 3">
+      <h3>Shoes 3</h3>
+      <p>₹1199</p>
+      <button onclick="addToCart(this)">Add to Cart</button>
+    </div>
+    <div class="product" data-name="Shoes 4" data-price="1299" data-img="img/s4.png">
+      <img src="img/s4.png" alt="Shoes 4">
+      <h3>Shoes 4</h3>
+      <p>₹1299</p>
+      <button onclick="addToCart(this)">Add to Cart</button>
+    </div>
+    <div class="product" data-name="Shoes 5" data-price="1399" data-img="img/s5.png">
+      <img src="img/s5.png" alt="Shoes 5">
+      <h3>Shoes 5</h3>
+      <p>₹1399</p>
+      <button onclick="addToCart(this)">Add to Cart</button>
+    </div>
+    <div class="product" data-name="Watch 1" data-price="1499" data-img="img/w1.png">
+      <img src="img/w1.png" alt="Watch 1">
+      <h3>Watch 1</h3>
+      <p>₹1499</p>
+      <button onclick="addToCart(this)">Add to Cart</button>
+    </div>
+    <div class="product" data-name="Watch 2" data-price="1599" data-img="img/w2.png">
+      <img src="img/w2.png" alt="Watch 2">
+      <h3>Watch 2</h3>
+      <p>₹1599</p>
+      <button onclick="addToCart(this)">Add to Cart</button>
+    </div>
+    <div class="product" data-name="Watch 3" data-price="1699" data-img="img/w3.png">
+      <img src="img/w3.png" alt="Watch 3">
+      <h3>Watch 3</h3>
+      <p>₹1699</p>
+      <button onclick="addToCart(this)">Add to Cart</button>
+    </div>
+    <div class="product" data-name="Watch 4" data-price="1799" data-img="img/w4.png">
+      <img src="img/w4.png" alt="Watch 4">
+      <h3>Watch 4</h3>
+      <p>₹1799</p>
+      <button onclick="addToCart(this)">Add to Cart</button>
+    </div>
+    <div class="product" data-name="Watch 5" data-price="1899" data-img="img/w5.png">
+      <img src="img/w5.png" alt="Watch 5">
+      <h3>Watch 5</h3>
+      <p>₹1899</p>
+      <button onclick="addToCart(this)">Add to Cart</button>
+    </div>
+    <div class="product" data-name="Cap 1" data-price="299" data-img="img/c1.png">
+      <img src="img/c1.png" alt="Cap 1">
+      <h3>Cap 1</h3>
+      <p>₹299</p>
+      <button onclick="addToCart(this)">Add to Cart</button>
+    </div>
+    <div class="product" data-name="Cap 2" data-price="399" data-img="img/c2.png">
+      <img src="img/c2.png" alt="Cap 2">
+      <h3>Cap 2</h3>
+      <p>₹399</p>
+      <button onclick="addToCart(this)">Add to Cart</button>
+    </div>
+    <div class="product" data-name="Cap 3" data-price="499" data-img="img/c3.png">
+      <img src="img/c3.png" alt="Cap 3">
+      <h3>Cap 3</h3>
+      <p>₹499</p>
+      <button onclick="addToCart(this)">Add to Cart</button>
+    </div>
+    <div class="product" data-name="Cap 4" data-price="599" data-img="img/c4.png">
+      <img src="img/c4.png" alt="Cap 4">
+      <h3>Cap 4</h3>
+      <p>₹599</p>
+      <button onclick="addToCart(this)">Add to Cart</button>
+    </div>
+    <div class="product" data-name="Cap 5" data-price="699" data-img="img/c5.png">
+      <img src="img/c5.png" alt="Cap 5">
+      <h3>Cap 5</h3>
+      <p>₹699</p>
+      <button onclick="addToCart(this)">Add to Cart</button>
+    </div>
+    <div class="product" data-name="Bag 1" data-price="999" data-img="img/b1.png">
+      <img src="img/b1.png" alt="Bag 1">
+      <h3>Bag 1</h3>
+      <p>₹999</p>
+      <button onclick="addToCart(this)">Add to Cart</button>
+    </div>
+    <div class="product" data-name="Bag 2" data-price="1099" data-img="img/b2.png">
+      <img src="img/b2.png" alt="Bag 2">
+      <h3>Bag 2</h3>
+      <p>₹1099</p>
+      <button onclick="addToCart(this)">Add to Cart</button>
+    </div>
+    <div class="product" data-name="Bag 3" data-price="1199" data-img="img/b3.png">
+      <img src="img/b3.png" alt="Bag 3">
+      <h3>Bag 3</h3>
+      <p>₹1199</p>
+      <button onclick="addToCart(this)">Add to Cart</button>
+    </div>
+    <div class="product" data-name="Bag 4" data-price="1299" data-img="img/b4.png">
+      <img src="img/b4.png" alt="Bag 4">
+      <h3>Bag 4</h3>
+      <p>₹1299</p>
+      <button onclick="addToCart(this)">Add to Cart</button>
+    </div>
+    <div class="product" data-name="Bag 5" data-price="1399" data-img="img/b5.png">
+      <img src="img/b5.png" alt="Bag 5">
+      <h3>Bag 5</h3>
+      <p>₹1399</p>
+      <button onclick="addToCart(this)">Add to Cart</button>
+    </div>
+  </div>
+<!-- Footer -->
+  <div class="footer">
+    © 2025 Sidd Collection | All Rights Reserved <br>
+    📞 Mobile: <a href="tel:+916390587790">+91 6390587790</a> | 
+    📧 Email: <a href="mailto:support@siddcollection.com">support@siddcollection.com</a>
+    <br><span id="dateTime"></span>
+  </div>
+</div>
+<!-- Button to Go to second Page -->
+    <div style="text-align: center;">
+      <a href="second.html" class="btn-link">Go to 2nd Page</a>
+    </div>
+  </main>
+
+
+  <script>
+    // Typing Effect
+    const text = "Welcome to My Online Shop!";
+    let i = 0;
+    function typeWriter() {
+      if (i < text.length) {
+        document.getElementById("typing-text").innerHTML += text.charAt(i);
+        i++;
+        setTimeout(typeWriter, 100);
+      }
+    }
+    typeWriter();
+
+    // Live Date & Time
+    function updateDateTime() {
+      const now = new Date();
+      const formatted = now.toLocaleString();
+      document.getElementById("datetime").innerText = formatted;
+    }
+    setInterval(updateDateTime, 1000);
+    updateDateTime();
+
+    // Add to Cart
+    function addToCart(button) {
+      const product = button.parentElement;
+      const name = product.dataset.name;
+      const price = "₹" + product.dataset.price;
+      const imgSrc = product.dataset.img;
+
+      let cart = JSON.parse(localStorage.getItem("cart")) || [];
+      cart.push({ name, price, imgSrc });
+      localStorage.setItem("cart", JSON.stringify(cart));
+
+      let cartCount = document.getElementById("cart-count");
+      cartCount.innerText = cart.length;
+
+      alert(`${name} added to cart!`);
+    }
+
+    // Go to Cart Button
+    function goToCart() {
+      window.location.href = "cart.html";
+    }
+
+    // On Page Load -> Refresh cart count
+    window.onload = function() {
+      let cart = JSON.parse(localStorage.getItem("cart")) || [];
+      document.getElementById("cart-count").innerText = cart.length;
+    }
+ </div>
+
+  </script>
+</body>
+</html>
+
+
+
+
+
+
+

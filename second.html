@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sidd Collection - Page 2</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f4f4f4;
+    }
+
+    /* Navbar */
+    .navbar {
+      background: #111923;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 20px;
+    }
+
+    .navbar .logo {
+      font-size: 22px;
+      font-weight: bold;
+      color: #ffeb3b;
+    }
+
+    .search-bar {
+      flex: 1;
+      margin: 0 20px;
+      display: flex;
+    }
+
+    .search-bar input {
+      flex: 1;
+      padding: 8px;
+      border: none;
+      outline: none;
+      border-radius: 4px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 20px;
+    }
+
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    /* Banner */
+    .banner {
+      background: url('images/banner2.jpg') no-repeat center center/cover;
+      height: 200px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 28px;
+      font-weight: bold;
+    }
+
+    /* Product Grid */
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 20px;
+      padding: 20px;
+    }
+
+    .product {
+      background: white;
+      border-radius: 8px;
+      text-align: center;
+      box-shadow: 0px 2px 6px rgba(0,0,0,0.1);
+      transition: transform 0.2s;
+      padding-bottom: 15px;
+    }
+
+    .product:hover {
+      transform: scale(1.05);
+    }
+
+    .product img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .product h3 {
+      font-size: 16px;
+      margin: 10px 0;
+    }
+
+    .price {
+      color: red;
+      font-weight: bold;
+      font-size: 15px;
+    }
+
+    .offer {
+      font-size: 13px;
+      color: green;
+      margin-bottom: 10px;
+    }
+
+    .btn {
+      background: #111923;
+      color: white;
+      padding: 8px 12px;
+      margin: 5px 2px;
+      border: none;
+      cursor: pointer;
+      border-radius: 4px;
+      font-size: 13px;
+    }
+
+    .btn:hover {
+      background: #ff5722;
+    }
+
+    /* Footer */
+    .footer {
+      background: #111923;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      margin-top: 20px;
+      font-size: 14px;
+    }
+
+    .footer a {
+      color: #ffeb3b;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <div class="navbar">
+    <div class="logo">👕 Sidd Collection</div>
+    <div class="search-bar">
+      <input type="text" id="searchBox" placeholder="Search for T-Shirts...">
+    </div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="second.html">Page 2</a>
+      <a href="third.html">Page 3</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </div>
+
+  <!-- Banner -->
+  <div class="banner">Page 2 - More Stylish T-Shirts</div>
+
+  <!-- Product Grid -->
+  <div class="product-grid" id="productGrid">
+
+    <!-- 25 T-Shirts (26 - 50) -->
+    <div class="product"><img src="images/t26.jpg"><h3>T-Shirt 26</h3><p class="price">₹499</p><p class="offer">Summer Sale</p><button class="btn">Add to Cart</button></div>
+    <div class="product"><img src="images/t27.jpg"><h3>T-Shirt 27</h3><p class="price">₹599</p><p class="offer">Hot Deal</p><button class="btn">Add to Cart</button></div>
+    <div class="product"><img src="images/t28.jpg"><h3>T-Shirt 28</h3><p class="price">₹699</p><p class="offer">Best Seller</p><button class="btn">Add to Cart</button></div>
+    <div class="product"><img src="images/t29.jpg"><h3>T-Shirt 29</h3><p class="price">₹799</p><p class="offer">Trending</p><button class="btn">Add to Cart</button></div>
+
+    <!-- Add T-Shirt 30 - 49 similarly -->
+    <div class="product"><img src="images/t30.jpg"><h3>T-Shirt 30</h3><p class="price">₹549</p><p class="offer">Flat 10% Off</p><button class="btn">Add to Cart</button></div>
+    <div class="product"><img src="images/t31.jpg"><h3>T-Shirt 31</h3><p class="price">₹649</p><p class="offer">New Arrival</p><button class="btn">Add to Cart</button></div>
+    <div class="product"><img src="images/t32.jpg"><h3>T-Shirt 32</h3><p class="price">₹749</p><p class="offer">Limited Stock</p><button class="btn">Add to Cart</button></div>
+    <div class="product"><img src="images/t33.jpg"><h3>T-Shirt 33</h3><p class="price">₹849</p><p class="offer">Hot Pick</p><button class="btn">Add to Cart</button></div>
+    <div class="product"><img src="images/t34.jpg"><h3>T-Shirt 34</h3><p class="price">₹449</p><p class="offer">Budget Deal</p><button class="btn">Add to Cart</button></div>
+    <div class="product"><img src="images/t35.jpg"><h3>T-Shirt 35</h3><p class="price">₹649</p><p class="offer">Exclusive</p><button class="btn">Add to Cart</button></div>
+
+    <div class="product"><img src="images/t36.jpg"><h3>T-Shirt 36</h3><p class="price">₹599</p><p class="offer">Combo Offer</p><button class="btn">Add to Cart</button></div>
+    <div class="product"><img src="images/t37.jpg"><h3>T-Shirt 37</h3><p class="price">₹799</p><p class="offer">Trending Now</p><button class="btn">Add to Cart</button></div>
+    <div class="product"><img src="images/t38.jpg"><h3>T-Shirt 38</h3><p class="price">₹699</p><p class="offer">Flash Sale</p><button class="btn">Add to Cart</button></div>
+    <div class="product"><img src="images/t39.jpg"><h3>T-Shirt 39</h3><p class="price">₹899</p><p class="offer">New Launch</p><button class="btn">Add to Cart</button></div>
+    <div class="product"><img src="images/t40.jpg"><h3>T-Shirt 40</h3><p class="price">₹499</p><p class="offer">Summer Collection</p><button class="btn">Add to Cart</button></div>
+
+    <div class="product"><img src="images/t41.jpg"><h3>T-Shirt 41</h3><p class="price">₹699</p><p class="offer">Hot Deal</p><button class="btn">Add to Cart</button></div>
+    <div class="product"><img src="images/t42.jpg"><h3>T-Shirt 42</h3><p class="price">₹799</p><p class="offer">Special Offer</p><button class="btn">Add to Cart</button></div>
+    <div class="product"><img src="images/t43.jpg"><h3>T-Shirt 43</h3><p class="price">₹599</p><p class="offer">Budget Pick</p><button class="btn">Add to Cart</button></div>
+    <div class="product"><img src="images/t44.jpg"><h3>T-Shirt 44</h3><p class="price">₹749</p><p class="offer">Best Seller</p><button class="btn">Add to Cart</button></div>
+    <div class="product"><img src="images/t45.jpg"><h3>T-Shirt 45</h3><p class="price">₹649</p><p class="offer">Trending</p><button class="btn">Add to Cart</button></div>
+
+    <div class="product"><img src="images/t46.jpg"><h3>T-Shirt 46</h3><p class="price">₹599</p><p class="offer">New Design</p><button class="btn">Add to Cart</button></div>
+    <div class="product"><img src="images/t47.jpg"><h3>T-Shirt 47</h3><p class="price">₹799</p><p class="offer">Exclusive</p><button class="btn">Add to Cart</button></div>
+    <div class="product"><img src="images/t48.jpg"><h3>T-Shirt 48</h3><p class="price">₹699</p><p class="offer">Flat 15% Off</p><button class="btn">Add to Cart</button></div>
+    <div class="product"><img src="images/t49.jpg"><h3>T-Shirt 49</h3><p class="price">₹899</p><p class="offer">Hot Pick</p><button class="btn">Add to Cart</button></div>
+
+    <!-- Last Product 50 with Next Page -->
+    <div class="product"><img src="images/t50.jpg"><h3>T-Shirt 50</h3><p class="price">₹999</p><p class="offer">Special Edition</p><button class="btn">Add to Cart</button><a href="third.html"><button class="btn">➡ Go to Third Page</button></a></div>
+
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    © 2025 Sidd Collection | All Rights Reserved <br>
+    📞 Mobile: <a href="tel:+916390587790">+91 6390587790</a> | 
+    📧 Email: <a href="mailto:support@siddcollection.com">support@siddcollection.com</a>
+    <br><span id="dateTime"></span>
+  </div>
+
+  <!-- JS: Search + Date/Time -->
+  <script>
+    const searchBox = document.getElementById('searchBox');
+    const productGrid = document.getElementById('productGrid');
+    const products = productGrid.getElementsByClassName('product');
+
+    searchBox.addEventListener('keyup', function() {
+      const query = searchBox.value.toLowerCase();
+      for (let i = 0; i < products.length; i++) {
+        let name = products[i].getElementsByTagName('h3')[0].innerText.toLowerCase();
+        if (name.includes(query)) {
+          products[i].style.display = "block";
+        } else {
+          products[i].style.display = "none";
+        }
+      }
+    });
+
+    // Date and Time
+    function updateDateTime() {
+      const now = new Date();
+      document.getElementById('dateTime').innerText =
+        now.toLocaleDateString() + " | " + now.toLocaleTimeString();
+    }
+    setInterval(updateDateTime, 1000);
+    updateDateTime();
+  </script>
+
+</body>
+</html>

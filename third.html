@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shoes Store</title>
+  <style>
+ <!-- Cart Info -->
+  <h1>🛍️ SIDD COLLECTION (<span id="cart-count">0</span>)</h1>
+   <div class="logo">👕 Sidd Collection</div>
+    <div class="search-bar">
+      <input type="text" id="searchBox" placeholder="Search for T-Shirts...">
+    </div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="second.html">Page 2</a>
+      <a href="third.html">Page 3</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </div>
+
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f5f5f5;
+    }
+    header {
+      background: #131921;
+      color: white;
+      padding: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .logo {
+      font-size: 22px;
+      font-weight: bold;
+    }
+    .search-bar {
+      flex: 1;
+      margin: 0 20px;
+    }
+    .search-bar input {
+      width: 100%;
+      padding: 10px;
+      border-radius: 5px;
+      border: none;
+      font-size: 16px;
+    }
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 20px;
+      padding: 20px;
+    }
+    .product {
+      background: white;
+      border-radius: 10px;
+      padding: 15px;
+      text-align: center;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .product img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+    .product h3 {
+      font-size: 16px;
+      margin: 10px 0;
+    }
+    .price {
+      font-size: 18px;
+      color: green;
+      font-weight: bold;
+    }
+    .offer {
+      color: red;
+      font-size: 14px;
+    }
+    .btn {
+      margin-top: 10px;
+      padding: 8px 12px;
+      border: none;
+      border-radius: 5px;
+      background: orange;
+      color: white;
+      cursor: pointer;
+    }
+    .btn:hover {
+      background: darkorange;
+    }
+    /* ✅ Sizes Style */
+    .sizes {
+      margin: 10px 0;
+    }
+    .sizes button {
+      margin: 3px;
+      padding: 6px 12px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      background: white;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .sizes button:hover {
+      background: orange;
+      color: white;
+      border: 1px solid orange;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">🛒 My Shoes Store</div>
+    <div class="search-bar">
+      <input type="text" id="searchInput" placeholder="Search for shoes...">
+    </div>
+  </header>
+
+  <div class="product-grid" id="productGrid">
+
+    <!-- 🔹 30 Shoes Products -->
+    <div class="product"><img src="C:\Users\91639\OneDrive\Desktop\shoe1.jpg"><h3>Sneaker Pro Max</h3><p class="price">₹1499</p><p class="offer">Flat 20% Off</p><div class="sizes"><button>6</button><button>7</button><button>8</button><button>9</button><button>10</button></div><button class="btn">Add to Cart</button></div>
+
+    <div class="product"><img src="C:\Users\91639\OneDrive\Desktop\shoe2.jpg"><h3>Urban Street Sneakers</h3><p class="price">₹1299</p><p class="offer">Trending Now</p><div class="sizes"><button>6</button><button>7</button><button>8</button><button>9</button><button>10</button></div><button class="btn">Add to Cart</button></div>
+
+    <div class="product"><img src="C:\Users\91639\OneDrive\Desktop\shoe3.jpg"><h3>Classic White Runners</h3><p class="price">₹1799</p><p class="offer">Best Seller</p><div class="sizes"><button>6</button><button>7</button><button>8</button><button>9</button><button>10</button></div><button class="btn">Add to Cart</button></div>
+
+    <div class="product"><img src="C:\Users\91639\OneDrive\Desktop\shoe4.jpg"><h3>Retro High-Tops</h3><p class="price">₹1999</p><p class="offer">Limited Edition</p><div class="sizes"><button>6</button><button>7</button><button>8</button><button>9</button><button>10</button></div><button class="btn">Add to Cart</button></div>
+
+    <div class="product"><img src="C:\Users\91639\OneDrive\Desktop\shoe5.jpg"><h3>Sports Runner X</h3><p class="price">₹1599</p><p class="offer">New Arrival</p><div class="sizes"><button>6</button><button>7</button><button>8</button><button>9</button><button>10</button></div><button class="btn">Add to Cart</button></div>
+
+    <div class="product"><img src="C:\Users\91639\OneDrive\Desktop\shoe6.jpg"><h3>Leather Formal Black</h3><p class="price">₹2499</p><p class="offer">Best Seller</p><div class="sizes"><button>6</button><button>7</button><button>8</button><button>9</button><button>10</button></div><button class="btn">Add to Cart</button></div>
+
+    <div class="product"><img src="C:\Users\91639\OneDrive\Desktop\shoe7.jpg"><h3>Casual Grey Sneakers</h3><p class="price">₹1399</p><p class="offer">Flat 10% Off</p><div class="sizes"><button>6</button><button>7</button><button>8</button><button>9</button><button>10</button></div><button class="btn">Add to Cart</button></div>
+
+    <div class="product"><img src="C:\Users\91639\OneDrive\Desktop\shoe8.jpg"><h3>All-White Runners</h3><p class="price">₹1899</p><p class="offer">Trending Now</p><div class="sizes"><button>6</button><button>7</button><button>8</button><button>9</button><button>10</button></div><button class="btn">Add to Cart</button></div>
+
+    <div class="product"><img src="C:\Users\91639\OneDrive\Desktop\shoe9.jpg"><h3>Canvas Blue Sneakers</h3><p class="price">₹1199</p><p class="offer">Budget Pick</p><div class="sizes"><button>6</button><button>7</button><button>8</button><button>9</button><button>10</button></div><button class="btn">Add to Cart</button></div>
+
+    <div class="product"><img src="C:\Users\91639\OneDrive\Desktop\shoe10.jpg"><h3>Classic Black Sneakers</h3><p class="price">₹1599</p><p class="offer">Most Popular</p><div class="sizes"><button>6</button><button>7</button><button>8</button><button>9</button><button>10</button></div><button class="btn">Add to Cart</button></div>
+
+    <div class="product"><img src="C:\Users\91639\OneDrive\Desktop\shoe11.jpg"><h3>Red Hot Sneakers</h3><p class="price">₹1499</p><p class="offer">Limited Stock</p><div class="sizes"><button>6</button><button>7</button><button>8</button><button>9</button><button>10</button></div><button class="btn">Add to Cart</button></div>
+
+    <div class="product"><img src="C:\Users\91639\OneDrive\Desktop\shoe12.jpg"><h3>Green Sports Shoes</h3><p class="price">₹1699</p><p class="offer">Flat 15% Off</p><div class="sizes"><button>6</button><button>7</button><button>8</button><button>9</button><button>10</button></div><button class="btn">Add to Cart</button></div>
+
+    <div class="product"><img src="C:\Users\91639\OneDrive\Desktop\shoe13.jpg"><h3>Winter Boots</h3><p class="price">₹2499</p><p class="offer">Hot Deal</p><div class="sizes"><button>6</button><button>7</button><button>8</button><button>9</button><button>10</button></div><button class="btn">Add to Cart</button></div>
+
+    <div class="product"><img src="C:\Users\91639\OneDrive\Desktop\shoe14.jpg"><h3>Summer Slip-ons</h3><p class="price">₹999</p><p class="offer">Lightweight</p><div class="sizes"><button>6</button><button>7</button><button>8</button><button>9</button><button>10</button></div><button class="btn">Add to Cart</button></div>
+
+    <div class="product"><img src="C:\Users\91639\OneDrive\Desktop\shoe15.jpg"><h3>Black Formal Shoes</h3><p class="price">₹2299</p><p class="offer">Business Style</p><div class="sizes"><button>6</button><button>7</button><button>8</button><button>9</button><button>10</button></div><button class="btn">Add to Cart</button></div>
+
+    <div class="product"><img src="C:\Users\91639\OneDrive\Desktop\shoe16.jpg"><h3>White Sports Runners</h3><p class="price">₹1599</p><p class="offer">Top Rated</p><div class="sizes"><button>6</button><button>7</button><button>8</button><button>9</button><button>10</button></div><button class="btn">Add to Cart</button></div>
+
+    <div class="product"><img src="C:\Users\91639\OneDrive\Desktop\shoe17.jpg"><h3>Street Wear Sneakers</h3><p class="price">₹1399</p><p class="offer">Cool Style</p><div class="sizes"><button>6</button><button>7</button><button>8</button><button>9</button><button>10</button></div><button class="btn">Add to Cart</button></div>
+
+    <div class="product"><img src="C:\Users\91639\OneDrive\Desktop\shoe18.jpg"><h3>Orange Runners</h3><p class="price">₹1699</p><p class="offer">Limited Edition</p><div class="sizes"><button>6</button><button>7</button><button>8</button><button>9</button><button>10</button></div><button class="btn">Add to Cart</button></div>
+
+    <div class="product"><img src="C:\Users\91639\OneDrive\Desktop\shoe19.jpg"><h3>Blue Gym Shoes</h3><p class="price">₹1499</p><p class="offer">Best Seller</p><div class="sizes"><button>6</button><button>7</button><button>8</button><button>9</button><button>10</button></div><button class="btn">Add to Cart</button></div>
+
+    <div class="product"><img src="C:\Users\91639\OneDrive\Desktop\shoe20.jpg"><h3>Running Shoes</h3><p class="price">₹1799</p><p class="offer">Trending</p><div class="sizes"><button>6</button><button>7</button><button>8</button><button>9</button><button>10</button></div><button class="btn">Add to Cart</button></div>
+
+    <div class="product"><img src="\Users\91639\OneDrive\Desktop\shoe21.jpg"><h3>Yellow Casual Shoes</h3><p class="price">₹1299</p><p class="offer">Hot Deal</p><div class="sizes"><button>6</button><button>7</button><button>8</button><button>9</button><button>10</button></div><button class="btn">Add to Cart</button></div>
+
+    <div class="product"><img src="\Users\91639\OneDrive\Desktop\shoe22.jpg"><h3>Outdoor Hiking Boots</h3><p class="price">₹2599</p><p class="offer">Adventure Pick</p><div class="sizes"><button>6</button><button>7</button><button>8</button><button>9</button><button>10</button></div><button class="btn">Add to Cart</button></div>
+
+    <div class="product"><img src="\Users\91639\OneDrive\Desktop\shoe23.jpg"><h3>Grey Casual Shoes</h3><p class="price">₹1499</p><p class="offer">Budget Friendly</p><div class="sizes"><button>6</button><button>7</button><button>8</button><button>9</button><button>10</button></div><button class="btn">Add to Cart</button></div>
+
+    <div class="product"><img src="\Users\91639\OneDrive\Desktop\shoe24.jpg"><h3>Party Wear Shoes</h3><p class="price">₹1999</p><p class="offer">Stylish</p><div class="sizes"><button>6</button><button>7</button><button>8</button><button>9</button><button>10</button></div><button class="btn">Add to Cart</button></div>
+
+    <div class="product"><img src="\Users\91639\OneDrive\Desktop\shoe25.jpg"><h3>Brown Leather Boots</h3><p class="price">₹2799</p><p class="offer">Premium</p><div class="sizes"><button>6</button><button>7</button><button>8</button><button>9</button><button>10</button></div><button class="btn">Add to Cart</button></div>
+
+    <div class="product"><img src="images/shoe26.jpg"><h3>Lightweight Slip-ons</h3><p class="price">₹999</p><p class="offer">Daily Use</p><div class="sizes"><button>6</button><button>7</button><button>8</button><button>9</button><button>10</button></div><button class="btn">Add to Cart</button></div>
+
+    <div class="product"><img src="images/shoe27.jpg"><h3>Stylish Red Heels</h3><p class="price">₹1899</p><p class="offer">Fashion Pick</p><div class="sizes"><button>6</button><button>7</button><button>8</button><button>9</button><button>10</button></div><button class="btn">Add to Cart</button></div>
+
+    <div class="product"><img src="images/shoe28.jpg"><h3>Running Track Shoes</h3><p class="price">₹1699</p><p class="offer">Sports Edition</p><div class="sizes"><button>6</button><button>7</button><button>8</button><button>9</button><button>10</button></div><button class="btn">Add to Cart</button></div>
+
+    <div class="product"><img src="images/shoe29.jpg"><h3>Office Wear Shoes</h3><p class="price">₹2199</p><p class="offer">Formal Look</p><div class="sizes"><button>6</button><button>7</button><button>8</button><button>9</button><button>10</button></div><button class="btn">Add to Cart</button></div>
+
+    <div class="product"><img src="images/shoe30.jpg"><h3>Trendy Sneakers</h3><p class="price">₹1599</p><p class="offer">Hot Sale</p><div class="sizes"><button>6</button><button>7</button><button>8</button><button>9</button><button>10</button></div><button class="btn">Add to Cart</button></div>
+
+  </div>
+<!-- Button to Go to second Page -->
+    <div style="text-align: center;">
+      <a href="second.html" class="btn-link">Go to 2nd Page</a>
+    </div>
+  </main>
+
+  <script>
+    // ✅ Search Functionality
+    const searchInput = document.getElementById("searchInput");
+    const products = document.querySelectorAll(".product");
+
+    searchInput.addEventListener("keyup", function() {
+      const searchValue = searchInput.value.toLowerCase();
+      products.forEach(product => {
+        const name = product.querySelector("h3").innerText.toLowerCase();
+        if (name.includes(searchValue)) {
+          product.style.display = "block";
+        } else {
+          product.style.display = "none";
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
