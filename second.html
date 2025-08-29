@@ -1,238 +1,207 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sidd Collection - Page 2</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background: #f4f4f4;
-    }
-
-    /* Navbar */
-    .navbar {
-      background: #111923;
-      color: white;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 10px 20px;
-    }
-
-    .navbar .logo {
-      font-size: 22px;
-      font-weight: bold;
-      color: #ffeb3b;
-    }
-
-    .search-bar {
-      flex: 1;
-      margin: 0 20px;
-      display: flex;
-    }
-
-    .search-bar input {
-      flex: 1;
-      padding: 8px;
-      border: none;
-      outline: none;
-      border-radius: 4px;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 20px;
-    }
-
-    .nav-links a {
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
-    }
-
-    /* Banner */
-    .banner {
-      background: url('images/banner2.jpg') no-repeat center center/cover;
-      height: 200px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      font-size: 28px;
-      font-weight: bold;
-    }
-
-    /* Product Grid */
-    .product-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-      gap: 20px;
-      padding: 20px;
-    }
-
-    .product {
-      background: white;
-      border-radius: 8px;
-      text-align: center;
-      box-shadow: 0px 2px 6px rgba(0,0,0,0.1);
-      transition: transform 0.2s;
-      padding-bottom: 15px;
-    }
-
-    .product:hover {
-      transform: scale(1.05);
-    }
-
-    .product img {
-      width: 100%;
-      height: 200px;
-      object-fit: cover;
-    }
-
-    .product h3 {
-      font-size: 16px;
-      margin: 10px 0;
-    }
-
-    .price {
-      color: red;
-      font-weight: bold;
-      font-size: 15px;
-    }
-
-    .offer {
-      font-size: 13px;
-      color: green;
-      margin-bottom: 10px;
-    }
-
-    .btn {
-      background: #111923;
-      color: white;
-      padding: 8px 12px;
-      margin: 5px 2px;
-      border: none;
-      cursor: pointer;
-      border-radius: 4px;
-      font-size: 13px;
-    }
-
-    .btn:hover {
-      background: #ff5722;
-    }
-
-    /* Footer */
-    .footer {
-      background: #111923;
-      color: white;
-      text-align: center;
-      padding: 15px;
-      margin-top: 20px;
-      font-size: 14px;
-    }
-
-    .footer a {
-      color: #ffeb3b;
-      text-decoration: none;
-    }
-  </style>
+<link rel="stylesheet" href="style.css">
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Sidd Collection – Page 2</title>
+<style>
+  :root{--brand:#1976d2;--brand-dark:#0d47a1;--accent:#e91e63;--bg:#f5f6f8}
+  *{box-sizing:border-box} body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial;background:var(--bg);color:#111}
+  .navbar{position:sticky;top:0;z-index:5;display:flex;gap:14px;align-items:center;justify-content:space-between;background:linear-gradient(90deg,#1a73e8,#42a5f5);color:#fff;padding:10px 18px;box-shadow:0 2px 8px rgba(0,0,0,.12)}
+  .logo{display:flex;align-items:center;font-weight:700;font-size:18px;gap:10px}
+  .logo img{width:36px;height:36px;border-radius:8px;background:#fff}
+  .search{flex:1;max-width:520px}
+  #searchBox{width:100%;padding:10px 12px;border-radius:8px;border:none;outline:none}
+  .nav-links{display:flex;align-items:center;gap:16px;font-weight:600}
+  .nav-links a{color:#fff;text-decoration:none;background:rgba(255,255,255,.12);padding:6px 10px;border-radius:8px}
+  .meta{display:flex;gap:10px;opacity:.9}
+  .container{max-width:1100px;margin:20px auto;padding:0 16px}
+  .products{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:18px}
+  .card{background:#fff;border-radius:14px;box-shadow:0 4px 18px rgba(0,0,0,.06);overflow:hidden;display:flex;flex-direction:column}
+  .card img{width:100%;height:170px;object-fit:cover}
+  .info{padding:12px 12px 14px}
+  .title{margin:2px 0 6px;font-size:16px}
+  .price{color:var(--accent);font-weight:700}
+  .btn{background:var(--brand);color:#fff;border:none;padding:10px 12px;border-radius:10px;cursor:pointer;width:100%;font-weight:700}
+  .btn:hover{background:var(--brand-dark)}
+  .pager{display:flex;justify-content:center;gap:10px;margin:24px 0}
+  .pager a{background:#fff;border:1px solid #e5e7eb;padding:8px 12px;border-radius:10px;text-decoration:none;color:#111}
+  .footer{background:#111;color:#fff;text-align:center;padding:16px;margin-top:20px}
+  .hint{font-size:13px;color:#555;margin:8px 0 14px}
+</style>
 </head>
 <body>
+<script src="script.js"></script>
+<header class="navbar">
+  <div class="logo"><img src="https://i.imgur.com/K2U1S0L.png" alt=""> Sidd Collection</div>
+  <div class="search"><input id="searchBox" type="text" placeholder="Search products…"/></div>
+  <div class="nav-links">
+    <span class="meta"><span id="date"></span> • <span id="clock"></span></span>
+    <a href="cart.html">🛒 Cart (<span id="nav-cart-count">0</span>)</a>
+  </div>
+</header>
 
-  <!-- Navbar -->
-  <div class="navbar">
-    <div class="logo">👕 Sidd Collection</div>
-    <div class="search-bar">
-      <input type="text" id="searchBox" placeholder="Search for T-Shirts...">
+<main class="container">
+  <h2>All Products – Page 2</h2>
+  <div class="hint">Type to filter cards on this page.</div>
+
+  <div id="productList" class="products">
+    <!-- IDs continue from 16 to 30 here, but we’ll use 16..30 and 31..30? We already used 1..15 on page1 -->
+    <div class="card" data-name="Women Ethnic Saree">
+      <img src="https://picsum.photos/seed/saree/500/350" alt="">
+      <div class="info">
+        <div class="title">Women Ethnic Saree</div>
+        <div class="price">₹1499</div>
+        <button class="btn" onclick="addToCart(16,'Women Ethnic Saree',1499,'https://picsum.photos/seed/saree/500/350')">Add to Cart</button>
+      </div>
     </div>
-    <div class="nav-links">
-      <a href="index.html">Home</a>
-      <a href="second.html">Page 2</a>
-      <a href="third.html">Page 3</a>
-      <a href="contact.html">Contact</a>
+
+    <div class="card" data-name="Hand Bag">
+      <img src="https://picsum.photos/seed/handbag/500/350" alt="">
+      <div class="info">
+        <div class="title">Hand Bag</div>
+        <div class="price">₹899</div>
+        <button class="btn" onclick="addToCart(17,'Hand Bag',899,'https://picsum.photos/seed/handbag/500/350')">Add to Cart</button>
+      </div>
+    </div>
+
+    <div class="card" data-name="Printed T-Shirt">
+      <img src="https://picsum.photos/seed/tshirt/500/350" alt="">
+      <div class="info">
+        <div class="title">Printed T-Shirt</div>
+        <div class="price">₹499</div>
+        <button class="btn" onclick="addToCart(18,'Printed T-Shirt',499,'https://picsum.photos/seed/tshirt/500/350')">Add to Cart</button>
+      </div>
+    </div>
+
+    <div class="card" data-name="Yoga Mat">
+      <img src="https://picsum.photos/seed/yogamat/500/350" alt="">
+      <div class="info">
+        <div class="title">Yoga Mat</div>
+        <div class="price">₹699</div>
+        <button class="btn" onclick="addToCart(19,'Yoga Mat',699,'https://picsum.photos/seed/yogamat/500/350')">Add to Cart</button>
+      </div>
+    </div>
+
+    <div class="card" data-name="Gym Water Shaker">
+      <img src="https://picsum.photos/seed/shaker/500/350" alt="">
+      <div class="info">
+        <div class="title">Gym Water Shaker</div>
+        <div class="price">₹349</div>
+        <button class="btn" onclick="addToCart(20,'Gym Water Shaker',349,'https://picsum.photos/seed/shaker/500/350')">Add to Cart</button>
+      </div>
+    </div>
+
+    <div class="card" data-name="Travel Duffel Bag">
+      <img src="https://picsum.photos/seed/duffel/500/350" alt="">
+      <div class="info">
+        <div class="title">Travel Duffel Bag</div>
+        <div class="price">₹1399</div>
+        <button class="btn" onclick="addToCart(21,'Travel Duffel Bag',1399,'https://picsum.photos/seed/duffel/500/350')">Add to Cart</button>
+      </div>
+    </div>
+
+    <div class="card" data-name="Chef Knife Set">
+      <img src="https://picsum.photos/seed/knives/500/350" alt="">
+      <div class="info">
+        <div class="title">Chef Knife Set</div>
+        <div class="price">₹999</div>
+        <button class="btn" onclick="addToCart(22,'Chef Knife Set',999,'https://picsum.photos/seed/knives/500/350')">Add to Cart</button>
+      </div>
+    </div>
+
+    <div class="card" data-name="Copper Bottle">
+      <img src="https://picsum.photos/seed/copper/500/350" alt="">
+      <div class="info">
+        <div class="title">Copper Bottle</div>
+        <div class="price">₹799</div>
+        <button class="btn" onclick="addToCart(23,'Copper Bottle',799,'https://picsum.photos/seed/copper/500/350')">Add to Cart</button>
+      </div>
+    </div>
+
+    <div class="card" data-name="Doormat Set">
+      <img src="https://picsum.photos/seed/doormat/500/350" alt="">
+      <div class="info">
+        <div class="title">Doormat Set</div>
+        <div class="price">₹299</div>
+        <button class="btn" onclick="addToCart(24,'Doormat Set',299,'https://picsum.photos/seed/doormat/500/350')">Add to Cart</button>
+      </div>
+    </div>
+
+    <div class="card" data-name="Wall Clock (Analog)">
+      <img src="https://picsum.photos/seed/wallclock/500/350" alt="">
+      <div class="info">
+        <div class="title">Wall Clock (Analog)</div>
+        <div class="price">₹649</div>
+        <button class="btn" onclick="addToCart(25,'Wall Clock (Analog)',649,'https://picsum.photos/seed/wallclock/500/350')">Add to Cart</button>
+      </div>
+    </div>
+
+    <div class="card" data-name="Room Freshener">
+      <img src="https://picsum.photos/seed/fresh/500/350" alt="">
+      <div class="info">
+        <div class="title">Room Freshener</div>
+        <div class="price">₹199</div>
+        <button class="btn" onclick="addToCart(26,'Room Freshener',199,'https://picsum.photos/seed/fresh/500/350')">Add to Cart</button>
+      </div>
+    </div>
+
+    <div class="card" data-name="Ceramic Dinner Set">
+      <img src="https://picsum.photos/seed/dinner/500/350" alt="">
+      <div class="info">
+        <div class="title">Ceramic Dinner Set</div>
+        <div class="price">₹2499</div>
+        <button class="btn" onclick="addToCart(27,'Ceramic Dinner Set',2499,'https://picsum.photos/seed/dinner/500/350')">Add to Cart</button>
+      </div>
+    </div>
+
+    <div class="card" data-name="Toiletry Pouch">
+      <img src="https://picsum.photos/seed/pouch/500/350" alt="">
+      <div class="info">
+        <div class="title">Toiletry Pouch</div>
+        <div class="price">₹349</div>
+        <button class="btn" onclick="addToCart(28,'Toiletry Pouch',349,'https://picsum.photos/seed/pouch/500/350')">Add to Cart</button>
+      </div>
+    </div>
+
+    <div class="card" data-name="Sports Socks (3 Pair)">
+      <img src="https://picsum.photos/seed/socks/500/350" alt="">
+      <div class="info">
+        <div class="title">Sports Socks (3 Pair)</div>
+        <div class="price">₹299</div>
+        <button class="btn" onclick="addToCart(29,'Sports Socks (3 Pair)',299,'https://picsum.photos/seed/socks/500/350')">Add to Cart</button>
+      </div>
+    </div>
+
+    <div class="card" data-name="Hoodie Sweatshirt">
+      <img src="https://picsum.photos/seed/hoodie/500/350" alt="">
+      <div class="info">
+        <div class="title">Hoodie Sweatshirt</div>
+        <div class="price">₹1199</div>
+        <button class="btn" onclick="addToCart(30,'Hoodie Sweatshirt',1199,'https://picsum.photos/seed/hoodie/500/350')">Add to Cart</button>
+      </div>
     </div>
   </div>
 
-  <!-- Banner -->
-  <div class="banner">Page 2 - More Stylish T-Shirts</div>
-
-  <!-- Product Grid -->
-  <div class="product-grid" id="productGrid">
-
-    <!-- 25 T-Shirts (26 - 50) -->
-    <div class="product"><img src="images/t26.jpg"><h3>T-Shirt 26</h3><p class="price">₹499</p><p class="offer">Summer Sale</p><button class="btn">Add to Cart</button></div>
-    <div class="product"><img src="images/t27.jpg"><h3>T-Shirt 27</h3><p class="price">₹599</p><p class="offer">Hot Deal</p><button class="btn">Add to Cart</button></div>
-    <div class="product"><img src="images/t28.jpg"><h3>T-Shirt 28</h3><p class="price">₹699</p><p class="offer">Best Seller</p><button class="btn">Add to Cart</button></div>
-    <div class="product"><img src="images/t29.jpg"><h3>T-Shirt 29</h3><p class="price">₹799</p><p class="offer">Trending</p><button class="btn">Add to Cart</button></div>
-
-    <!-- Add T-Shirt 30 - 49 similarly -->
-    <div class="product"><img src="images/t30.jpg"><h3>T-Shirt 30</h3><p class="price">₹549</p><p class="offer">Flat 10% Off</p><button class="btn">Add to Cart</button></div>
-    <div class="product"><img src="images/t31.jpg"><h3>T-Shirt 31</h3><p class="price">₹649</p><p class="offer">New Arrival</p><button class="btn">Add to Cart</button></div>
-    <div class="product"><img src="images/t32.jpg"><h3>T-Shirt 32</h3><p class="price">₹749</p><p class="offer">Limited Stock</p><button class="btn">Add to Cart</button></div>
-    <div class="product"><img src="images/t33.jpg"><h3>T-Shirt 33</h3><p class="price">₹849</p><p class="offer">Hot Pick</p><button class="btn">Add to Cart</button></div>
-    <div class="product"><img src="images/t34.jpg"><h3>T-Shirt 34</h3><p class="price">₹449</p><p class="offer">Budget Deal</p><button class="btn">Add to Cart</button></div>
-    <div class="product"><img src="images/t35.jpg"><h3>T-Shirt 35</h3><p class="price">₹649</p><p class="offer">Exclusive</p><button class="btn">Add to Cart</button></div>
-
-    <div class="product"><img src="images/t36.jpg"><h3>T-Shirt 36</h3><p class="price">₹599</p><p class="offer">Combo Offer</p><button class="btn">Add to Cart</button></div>
-    <div class="product"><img src="images/t37.jpg"><h3>T-Shirt 37</h3><p class="price">₹799</p><p class="offer">Trending Now</p><button class="btn">Add to Cart</button></div>
-    <div class="product"><img src="images/t38.jpg"><h3>T-Shirt 38</h3><p class="price">₹699</p><p class="offer">Flash Sale</p><button class="btn">Add to Cart</button></div>
-    <div class="product"><img src="images/t39.jpg"><h3>T-Shirt 39</h3><p class="price">₹899</p><p class="offer">New Launch</p><button class="btn">Add to Cart</button></div>
-    <div class="product"><img src="images/t40.jpg"><h3>T-Shirt 40</h3><p class="price">₹499</p><p class="offer">Summer Collection</p><button class="btn">Add to Cart</button></div>
-
-    <div class="product"><img src="images/t41.jpg"><h3>T-Shirt 41</h3><p class="price">₹699</p><p class="offer">Hot Deal</p><button class="btn">Add to Cart</button></div>
-    <div class="product"><img src="images/t42.jpg"><h3>T-Shirt 42</h3><p class="price">₹799</p><p class="offer">Special Offer</p><button class="btn">Add to Cart</button></div>
-    <div class="product"><img src="images/t43.jpg"><h3>T-Shirt 43</h3><p class="price">₹599</p><p class="offer">Budget Pick</p><button class="btn">Add to Cart</button></div>
-    <div class="product"><img src="images/t44.jpg"><h3>T-Shirt 44</h3><p class="price">₹749</p><p class="offer">Best Seller</p><button class="btn">Add to Cart</button></div>
-    <div class="product"><img src="images/t45.jpg"><h3>T-Shirt 45</h3><p class="price">₹649</p><p class="offer">Trending</p><button class="btn">Add to Cart</button></div>
-
-    <div class="product"><img src="images/t46.jpg"><h3>T-Shirt 46</h3><p class="price">₹599</p><p class="offer">New Design</p><button class="btn">Add to Cart</button></div>
-    <div class="product"><img src="images/t47.jpg"><h3>T-Shirt 47</h3><p class="price">₹799</p><p class="offer">Exclusive</p><button class="btn">Add to Cart</button></div>
-    <div class="product"><img src="images/t48.jpg"><h3>T-Shirt 48</h3><p class="price">₹699</p><p class="offer">Flat 15% Off</p><button class="btn">Add to Cart</button></div>
-    <div class="product"><img src="images/t49.jpg"><h3>T-Shirt 49</h3><p class="price">₹899</p><p class="offer">Hot Pick</p><button class="btn">Add to Cart</button></div>
-
-    <!-- Last Product 50 with Next Page -->
-    <div class="product"><img src="images/t50.jpg"><h3>T-Shirt 50</h3><p class="price">₹999</p><p class="offer">Special Edition</p><button class="btn">Add to Cart</button><a href="third.html"><button class="btn">➡ Go to Third Page</button></a></div>
-
+  <div class="pager">
+    <a href="index.html">⬅ Prev (Page 1)</a>
+    <a href="third.html">➡ Next (Page 3)</a>
   </div>
+</main>
 
-  <!-- Footer -->
-  <div class="footer">
-    © 2025 Sidd Collection | All Rights Reserved <br>
-    📞 Mobile: <a href="tel:+916390587790">+91 6390587790</a> | 
-    📧 Email: <a href="mailto:support@siddcollection.com">support@siddcollection.com</a>
-    <br><span id="dateTime"></span>
-  </div>
+<footer class="footer">© <span id="year"></span> Sidd Collection</footer>
 
-  <!-- JS: Search + Date/Time -->
-  <script>
-    const searchBox = document.getElementById('searchBox');
-    const productGrid = document.getElementById('productGrid');
-    const products = productGrid.getElementsByClassName('product');
-
-    searchBox.addEventListener('keyup', function() {
-      const query = searchBox.value.toLowerCase();
-      for (let i = 0; i < products.length; i++) {
-        let name = products[i].getElementsByTagName('h3')[0].innerText.toLowerCase();
-        if (name.includes(query)) {
-          products[i].style.display = "block";
-        } else {
-          products[i].style.display = "none";
-        }
-      }
-    });
-
-    // Date and Time
-    function updateDateTime() {
-      const now = new Date();
-      document.getElementById('dateTime').innerText =
-        now.toLocaleDateString() + " | " + now.toLocaleTimeString();
-    }
-    setInterval(updateDateTime, 1000);
-    updateDateTime();
-  </script>
-
+<script>
+  let cart = JSON.parse(localStorage.getItem("cart") || "[]");
+  const saveCart = () => localStorage.setItem("cart", JSON.stringify(cart));
+  function updateCartCount(){ const el=document.getElementById("nav-cart-count"); if(!el) return; el.textContent=cart.reduce((s,i)=>s+i.quantity,0); }
+  function addToCart(id,name,price,image){ const f=cart.find(i=>i.id===id); if(f)f.quantity++; else cart.push({id,name,price,image,quantity:1}); saveCart(); updateCartCount(); alert(name+" added to cart!"); }
+  function setupSearch(){ const input=document.getElementById("searchBox"); const list=document.getElementById("productList"); if(!input||!list)return; input.addEventListener("input",()=>{const q=input.value.toLowerCase(); list.querySelectorAll(".card").forEach(c=>{const n=(c.getAttribute("data-name")||"").toLowerCase(); c.style.display=n.includes(q)?"": "none";});});}
+  function startClock(){ const c=document.getElementById("clock"), d=document.getElementById("date"); setInterval(()=>{const n=new Date(); if(c)c.textContent=n.toLocaleTimeString(); if(d)d.textContent=n.toLocaleDateString();},1000); }
+  document.getElementById("year").textContent=new Date().getFullYear();
+  updateCartCount(); setupSearch(); startClock();
+</script>
 </body>
 </html>
+

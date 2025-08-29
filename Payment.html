@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Payment</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background:#f9f9f9;
+      margin:0;
+      padding:0;
+    }
+    header {
+      background:#007bff;
+      padding:15px;
+      color:white;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+    }
+    header .logo {
+      font-size:20px;
+      font-weight:bold;
+    }
+    header nav a {
+      color:white;
+      margin-left:15px;
+      text-decoration:none;
+      font-size:16px;
+    }
+    .payment-container {
+      max-width: 700px;
+      margin: 30px auto;
+      background: #fff;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    h1, h2 {
+      text-align:center;
+      margin-bottom:15px;
+    }
+    .user-details {
+      background:#f1f1f1;
+      padding:15px;
+      border-radius:10px;
+      margin-bottom:20px;
+    }
+    .user-details p {
+      margin:6px 0;
+      font-size:15px;
+    }
+    label {
+      display:block;
+      margin-top:12px;
+      font-weight:bold;
+    }
+    input[type="radio"] {
+      margin-right:8px;
+    }
+    button {
+      width:48%;
+      padding:12px;
+      margin-top:20px;
+      border:none;
+      border-radius:6px;
+      font-size:16px;
+      cursor:pointer;
+      transition:0.3s;
+    }
+    .btn-success {
+      background:#28a745;
+      color:white;
+    }
+    .btn-success:hover {
+      background:#218838;
+    }
+    .btn-fail {
+      background:#dc3545;
+      color:white;
+    }
+    .btn-fail:hover {
+      background:#c82333;
+    }
+    .btn-group {
+      display:flex;
+      justify-content:space-between;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <header>
+    <div class="logo">🛍 Sidd Collection</div>
+    <nav>
+      <a href="index.html">🏠 Home</a>
+      <a href="cart.html">🛒 Cart</a>
+    </nav>
+  </header>
+
+  <main class="payment-container">
+    <h1>Payment Page</h1>
+
+    <!-- User Details Auto-Fill -->
+    <div class="user-details" id="userDetails">
+      <h2>Delivery Details</h2>
+      <p><strong>Name:</strong> <span id="showName"></span></p>
+      <p><strong>Email:</strong> <span id="showEmail"></span></p>
+      <p><strong>Mobile:</strong> <span id="showPhone"></span></p>
+      <p><strong>Address:</strong> <span id="showAddress"></span></p>
+    </div>
+
+    <!-- Payment Options -->
+    <h2>Select Payment Method</h2>
+    <label><input type="radio" name="payment" value="upi" checked> UPI (Google Pay / PhonePe / Paytm)</label>
+    <label><input type="radio" name="payment" value="card"> Credit / Debit Card</label>
+    <label><input type="radio" name="payment" value="wallet"> Wallets</label>
+    <label><input type="radio" name="payment" value="cod"> Cash on Delivery (COD)</label>
+
+    <div class="btn-group">
+      <button class="btn-success" onclick="completePayment(true)">✅ Pay Now</button>
+      <button class="btn-fail" onclick="completePayment(false)">❌ Fail Payment</button>
+    </div>
+  </main>
+
+  <script>
+    // Load user data from localStorage
+    const checkoutData = JSON.parse(localStorage.getItem("checkoutData"));
+    if (checkoutData) {
+      document.getElementById("showName").textContent = checkoutData.name;
+      document.getElementById("showEmail").textContent = checkoutData.email;
+      document.getElementById("showPhone").textContent = checkoutData.phone;
+      document.getElementById("showAddress").textContent = checkoutData.address;
+    }
+
+    // Payment Function
+    function completePayment(success) {
+      const selectedPayment = document.querySelector('input[name="payment"]:checked').value;
+      if(success) {
+        alert("✅ Payment Successful via " + selectedPayment.toUpperCase());
+        window.location.href = "order.html"; // redirect to order tracking
+      } else {
+        alert("❌ Payment Failed! Try again...");
+        window.location.href = "failure.html";
+      }
+    }
+  </script>
+</body>
+</html>
+
+
+

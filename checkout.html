@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkout</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background:#f4f4f9;
+      margin:0;
+      padding:0;
+    }
+    header {
+      background:#007bff;
+      padding:15px;
+      color:white;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+    }
+    header .logo {
+      font-size:20px;
+      font-weight:bold;
+    }
+    header nav a {
+      color:white;
+      margin-left:15px;
+      text-decoration:none;
+      font-size:16px;
+    }
+    .checkout-container {
+      max-width: 600px;
+      margin: 40px auto;
+      background: #fff;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    h1 {
+      text-align:center;
+      margin-bottom:20px;
+    }
+    label {
+      display:block;
+      margin-top:15px;
+      font-weight:bold;
+    }
+    input, textarea {
+      width:100%;
+      padding:10px;
+      margin-top:5px;
+      border:1px solid #ccc;
+      border-radius:6px;
+      font-size:15px;
+    }
+    button {
+      width:100%;
+      margin-top:20px;
+      padding:12px;
+      font-size:16px;
+      border:none;
+      border-radius:8px;
+      background:#007bff;
+      color:white;
+      cursor:pointer;
+      transition:0.3s;
+    }
+    button:hover {
+      background:#0056b3;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <header>
+    <div class="logo">🛍 Sidd Collection</div>
+    <nav>
+      <a href="index.html">🏠 Home</a>
+      <a href="cart.html">🛒 Cart</a>
+    </nav>
+  </header>
+
+  <!-- Checkout Form -->
+  <main class="checkout-container">
+    <h1>Checkout</h1>
+
+    <form id="checkoutForm">
+      <label for="name">Full Name</label>
+      <input type="text" id="name" placeholder="Enter your full name" required>
+
+      <label for="email">Email ID</label>
+      <input type="email" id="email" placeholder="Enter your email" required>
+
+      <label for="phone">Mobile Number</label>
+      <input type="tel" id="phone" placeholder="Enter mobile number" required>
+
+      <label for="address">Delivery Address</label>
+      <textarea id="address" rows="4" placeholder="Enter your full address" required></textarea>
+
+      <button type="submit">Proceed to Payment</button>
+    </form>
+  </main>
+
+  <script>
+    // Form Submit Event
+    document.getElementById("checkoutForm").addEventListener("submit", function(e){
+      e.preventDefault();
+
+      // Get form data
+      const userData = {
+        name: document.getElementById("name").value,
+        email: document.getElementById("email").value,
+        phone: document.getElementById("phone").value,
+        address: document.getElementById("address").value
+      };
+
+      // Save data in localStorage
+      localStorage.setItem("checkoutData", JSON.stringify(userData));
+
+      // Redirect to Payment Page
+      window.location.href = "payment.html";
+    });
+  </script>
+</body>
+</html>
+

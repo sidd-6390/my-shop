@@ -1,341 +1,262 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<link rel="stylesheet" href="style.css">
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Sidd Collection – Home</title>
 
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SIDD COLLECTION</title>
-  <style>
-
-    body {
-      font-family: Arial, sans-serif;
-      background: #f5f5f5;
-      margin: 0;
-      padding: 20px;
-    }
-    h1 {
-      text-align: center;
-      margin-bottom: 10px;
-    }
-    #cart-count {
-      font-weight: bold;
-      color: red;
-    }
-    #datetime {
-      text-align: center;
-      font-size: 16px;
-      margin-bottom: 20px;
-      color: #333;
-    }
-    #typing-text {
-      text-align: center;
-      font-size: 20px;
-      font-weight: bold;
-      color: #007bff;
-      margin-bottom: 15px;
-      height: 25px;
-    }
-    .top-buttons {
-      text-align: center;
-      margin-bottom: 20px;
-    }
-    .top-buttons button {
-      padding: 10px 15px;
-      background: #28a745;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      margin: 5px;
-    }
-    .top-buttons button:hover {
-      background: #1e7e34;
-    }
-    .products {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-      gap: 15px;
-    }
-    .product {
-      background: #fff;
-      padding: 15px;
-      border-radius: 10px;
-      text-align: center;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    }
-    .product img {
-      width: 150px;
-      height: 150px;
-    }
-    .product h3 {
-      margin: 10px 0;
-    }
-    button {
-      padding: 8px 12px;
-      background: #007bff;
-      border: none;
-      border-radius: 5px;
-      color: white;
-      cursor: pointer;
-    }
-    button:hover {
-      background: #0056b3;
-    }
-  </style>
+<!-- ===== CSS (shared) ===== -->
+<style>
+  :root{--brand:#1976d2;--brand-dark:#0d47a1;--accent:#e91e63;--bg:#f5f6f8}
+  *{box-sizing:border-box}
+  body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial;background:var(--bg);color:#111}
+  /* Navbar */
+  .navbar{position:sticky;top:0;z-index:5;display:flex;gap:14px;align-items:center;justify-content:space-between;background:linear-gradient(90deg,#1a73e8,#42a5f5);color:#fff;padding:10px 18px;box-shadow:0 2px 8px rgba(0,0,0,.12)}
+  .logo{display:flex;align-items:center;font-weight:700;font-size:18px;gap:10px}
+  .logo img{width:36px;height:36px;border-radius:8px;object-fit:cover;background:#fff}
+  .search{flex:1;max-width:520px}
+  #searchBox{width:100%;padding:10px 12px;border-radius:8px;border:none;outline:none}
+  .nav-links{display:flex;align-items:center;gap:16px;font-weight:600}
+  .nav-links a{color:#fff;text-decoration:none;background:rgba(255,255,255,.12);padding:6px 10px;border-radius:8px}
+  .meta{display:flex;gap:10px;opacity:.9}
+  /* Layout */
+  .container{max-width:1100px;margin:20px auto;padding:0 16px}
+  h2{margin:8px 0 16px}
+  .products{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:18px}
+  .card{background:#fff;border-radius:14px;box-shadow:0 4px 18px rgba(0,0,0,.06);overflow:hidden;display:flex;flex-direction:column}
+  .card img{width:100%;height:170px;object-fit:cover}
+  .card .info{padding:12px 12px 14px}
+  .title{margin:2px 0 6px;font-size:16px}
+  .price{color:var(--accent);font-weight:700}
+  .btn{background:var(--brand);color:#fff;border:none;padding:10px 12px;border-radius:10px;cursor:pointer;width:100%;font-weight:700}
+  .btn:hover{background:var(--brand-dark)}
+  .pager{display:flex;justify-content:center;gap:10px;margin:24px 0}
+  .pager a{background:#fff;border:1px solid #e5e7eb;padding:8px 12px;border-radius:10px;text-decoration:none;color:#111}
+  .footer{background:#111;color:#fff;text-align:center;padding:16px;margin-top:20px}
+  .hint{font-size:13px;color:#555;margin:8px 0 14px}
+</style>
 </head>
 <body>
-
-  <!-- Live Typing -->
-  <div id="typing-text"></div>
-
-  <!-- Live Date and Time -->
-  <div id="datetime"></div>
-
-  <!-- Cart Info -->
-  <h1>🛍️ SIDD COLLECTION (<span id="cart-count">0</span>)</h1>
-   <div class="logo">👕 Sidd Collection</div>
-    <div class="search-bar">
-      <input type="text" id="searchBox" placeholder="Search for T-Shirts...">
-    </div>
-    <div class="nav-links">
-      <a href="index.html">Home</a>
-      <a href="second.html">Page 2</a>
-      <a href="third.html">Page 3</a>
-      <a href="contact.html">Contact</a>
-    </div>
-  </div>
-
-  <!-- Top Buttons -->
-  <div class="top-buttons">
-    <button onclick="goToCart()">Go To Cart</button>
-  </div>
-
-  <div class="products">
-    <!-- 25 Products -->
-    <div class="product" data-name="Tshirt 1" data-price="499" data-img="img/t1.png">
-      <img src="img/t1.png" alt="Tshirt 1">
-      <h3>Tshirt 1</h3>
-      <p>₹499</p>
-      <button onclick="addToCart(this)">Add to Cart</button>
-    </div>
-    <div class="product" data-name="Tshirt 2" data-price="599" data-img="img/t2.png">
-      <img src="img/t2.png" alt="Tshirt 2">
-      <h3>Tshirt 2</h3>
-      <p>₹599</p>
-      <button onclick="addToCart(this)">Add to Cart</button>
-    </div>
-    <div class="product" data-name="Tshirt 3" data-price="699" data-img="img/t3.png">
-      <img src="img/t3.png" alt="Tshirt 3">
-      <h3>Tshirt 3</h3>
-      <p>₹699</p>
-      <button onclick="addToCart(this)">Add to Cart</button>
-    </div>
-    <div class="product" data-name="Tshirt 4" data-price="799" data-img="img/t4.png">
-      <img src="img/t4.png" alt="Tshirt 4">
-      <h3>Tshirt 4</h3>
-      <p>₹799</p>
-      <button onclick="addToCart(this)">Add to Cart</button>
-    </div>
-    <div class="product" data-name="Tshirt 5" data-price="899" data-img="img/t5.png">
-      <img src="img/t5.png" alt="Tshirt 5">
-      <h3>Tshirt 5</h3>
-      <p>₹899</p>
-      <button onclick="addToCart(this)">Add to Cart</button>
-    </div>
-    <div class="product" data-name="Shoes 1" data-price="999" data-img="img/s1.png">
-      <img src="img/s1.png" alt="Shoes 1">
-      <h3>Shoes 1</h3>
-      <p>₹999</p>
-      <button onclick="addToCart(this)">Add to Cart</button>
-    </div>
-    <div class="product" data-name="Shoes 2" data-price="1099" data-img="img/s2.png">
-      <img src="img/s2.png" alt="Shoes 2">
-      <h3>Shoes 2</h3>
-      <p>₹1099</p>
-      <button onclick="addToCart(this)">Add to Cart</button>
-    </div>
-    <div class="product" data-name="Shoes 3" data-price="1199" data-img="img/s3.png">
-      <img src="img/s3.png" alt="Shoes 3">
-      <h3>Shoes 3</h3>
-      <p>₹1199</p>
-      <button onclick="addToCart(this)">Add to Cart</button>
-    </div>
-    <div class="product" data-name="Shoes 4" data-price="1299" data-img="img/s4.png">
-      <img src="img/s4.png" alt="Shoes 4">
-      <h3>Shoes 4</h3>
-      <p>₹1299</p>
-      <button onclick="addToCart(this)">Add to Cart</button>
-    </div>
-    <div class="product" data-name="Shoes 5" data-price="1399" data-img="img/s5.png">
-      <img src="img/s5.png" alt="Shoes 5">
-      <h3>Shoes 5</h3>
-      <p>₹1399</p>
-      <button onclick="addToCart(this)">Add to Cart</button>
-    </div>
-    <div class="product" data-name="Watch 1" data-price="1499" data-img="img/w1.png">
-      <img src="img/w1.png" alt="Watch 1">
-      <h3>Watch 1</h3>
-      <p>₹1499</p>
-      <button onclick="addToCart(this)">Add to Cart</button>
-    </div>
-    <div class="product" data-name="Watch 2" data-price="1599" data-img="img/w2.png">
-      <img src="img/w2.png" alt="Watch 2">
-      <h3>Watch 2</h3>
-      <p>₹1599</p>
-      <button onclick="addToCart(this)">Add to Cart</button>
-    </div>
-    <div class="product" data-name="Watch 3" data-price="1699" data-img="img/w3.png">
-      <img src="img/w3.png" alt="Watch 3">
-      <h3>Watch 3</h3>
-      <p>₹1699</p>
-      <button onclick="addToCart(this)">Add to Cart</button>
-    </div>
-    <div class="product" data-name="Watch 4" data-price="1799" data-img="img/w4.png">
-      <img src="img/w4.png" alt="Watch 4">
-      <h3>Watch 4</h3>
-      <p>₹1799</p>
-      <button onclick="addToCart(this)">Add to Cart</button>
-    </div>
-    <div class="product" data-name="Watch 5" data-price="1899" data-img="img/w5.png">
-      <img src="img/w5.png" alt="Watch 5">
-      <h3>Watch 5</h3>
-      <p>₹1899</p>
-      <button onclick="addToCart(this)">Add to Cart</button>
-    </div>
-    <div class="product" data-name="Cap 1" data-price="299" data-img="img/c1.png">
-      <img src="img/c1.png" alt="Cap 1">
-      <h3>Cap 1</h3>
-      <p>₹299</p>
-      <button onclick="addToCart(this)">Add to Cart</button>
-    </div>
-    <div class="product" data-name="Cap 2" data-price="399" data-img="img/c2.png">
-      <img src="img/c2.png" alt="Cap 2">
-      <h3>Cap 2</h3>
-      <p>₹399</p>
-      <button onclick="addToCart(this)">Add to Cart</button>
-    </div>
-    <div class="product" data-name="Cap 3" data-price="499" data-img="img/c3.png">
-      <img src="img/c3.png" alt="Cap 3">
-      <h3>Cap 3</h3>
-      <p>₹499</p>
-      <button onclick="addToCart(this)">Add to Cart</button>
-    </div>
-    <div class="product" data-name="Cap 4" data-price="599" data-img="img/c4.png">
-      <img src="img/c4.png" alt="Cap 4">
-      <h3>Cap 4</h3>
-      <p>₹599</p>
-      <button onclick="addToCart(this)">Add to Cart</button>
-    </div>
-    <div class="product" data-name="Cap 5" data-price="699" data-img="img/c5.png">
-      <img src="img/c5.png" alt="Cap 5">
-      <h3>Cap 5</h3>
-      <p>₹699</p>
-      <button onclick="addToCart(this)">Add to Cart</button>
-    </div>
-    <div class="product" data-name="Bag 1" data-price="999" data-img="img/b1.png">
-      <img src="img/b1.png" alt="Bag 1">
-      <h3>Bag 1</h3>
-      <p>₹999</p>
-      <button onclick="addToCart(this)">Add to Cart</button>
-    </div>
-    <div class="product" data-name="Bag 2" data-price="1099" data-img="img/b2.png">
-      <img src="img/b2.png" alt="Bag 2">
-      <h3>Bag 2</h3>
-      <p>₹1099</p>
-      <button onclick="addToCart(this)">Add to Cart</button>
-    </div>
-    <div class="product" data-name="Bag 3" data-price="1199" data-img="img/b3.png">
-      <img src="img/b3.png" alt="Bag 3">
-      <h3>Bag 3</h3>
-      <p>₹1199</p>
-      <button onclick="addToCart(this)">Add to Cart</button>
-    </div>
-    <div class="product" data-name="Bag 4" data-price="1299" data-img="img/b4.png">
-      <img src="img/b4.png" alt="Bag 4">
-      <h3>Bag 4</h3>
-      <p>₹1299</p>
-      <button onclick="addToCart(this)">Add to Cart</button>
-    </div>
-    <div class="product" data-name="Bag 5" data-price="1399" data-img="img/b5.png">
-      <img src="img/b5.png" alt="Bag 5">
-      <h3>Bag 5</h3>
-      <p>₹1399</p>
-      <button onclick="addToCart(this)">Add to Cart</button>
-    </div>
-  </div>
-<!-- Footer -->
-  <div class="footer">
-    © 2025 Sidd Collection | All Rights Reserved <br>
-    📞 Mobile: <a href="tel:+916390587790">+91 6390587790</a> | 
-    📧 Email: <a href="mailto:support@siddcollection.com">support@siddcollection.com</a>
-    <br><span id="dateTime"></span>
-  </div>
+<script src="script.js"></script
+<header class="navbar">
+<div class="slider">
 </div>
-<!-- Button to Go to second Page -->
-    <div style="text-align: center;">
-      <a href="second.html" class="btn-link">Go to 2nd Page</a>
+  <div class="logo">
+    <img src="https://i.imgur.com/K2U1S0L.png" alt="Logo">
+    Sidd Collection
+  </div>
+  <div class="search"><input id="searchBox" type="text" placeholder="Search products… (e.g. kurti, bedsheet, shoes)" /></div>
+  <div class="nav-links">
+    <span class="meta"><span id="date"></span> • <span id="clock"></span></span>
+    <a href="cart.html">🛒 Cart (<span id="nav-cart-count">0</span>)</a>
+  </div>
+</header>
+
+<main class="container">
+  <h2>All Products – Page 1</h2>
+  <div class="hint">Live searching: upar search box me type karke cards filter kar sakte ho.</div>
+
+  <div id="productList" class="products">
+    <!-- 15 non-electronics products -->
+    <div class="card" data-name="Cotton Kurti">
+      <img src="https://picsum.photos/seed/kurti/500/350" alt="Cotton Kurti">
+      <div class="info">
+        <div class="title">Cotton Kurti</div>
+        <div class="price">₹699</div>
+        <button class="btn" onclick="addToCart(1,'Cotton Kurti',699,'https://picsum.photos/seed/kurti/500/350')">Add to Cart</button>
+      </div>
     </div>
-  </main>
 
+    <div class="card" data-name="Men Denim Jeans">
+      <img src="https://picsum.photos/seed/jeans/500/350" alt="Denim Jeans">
+      <div class="info">
+        <div class="title">Men Denim Jeans</div>
+        <div class="price">₹1199</div>
+        <button class="btn" onclick="addToCart(2,'Men Denim Jeans',1199,'https://picsum.photos/seed/jeans/500/350')">Add to Cart</button>
+      </div>
+    </div>
 
-  <script>
-    // Typing Effect
-    const text = "Welcome to My Online Shop!";
-    let i = 0;
-    function typeWriter() {
-      if (i < text.length) {
-        document.getElementById("typing-text").innerHTML += text.charAt(i);
-        i++;
-        setTimeout(typeWriter, 100);
-      }
-    }
-    typeWriter();
+    <div class="card" data-name="Casual Sneakers">
+      <img src="https://picsum.photos/seed/sneaker/500/350" alt="Sneakers">
+      <div class="info">
+        <div class="title">Casual Sneakers</div>
+        <div class="price">₹1499</div>
+        <button class="btn" onclick="addToCart(3,'Casual Sneakers',1499,'https://picsum.photos/seed/sneaker/500/350')">Add to Cart</button>
+      </div>
+    </div>
 
-    // Live Date & Time
-    function updateDateTime() {
+    <div class="card" data-name="Bedsheet (Double)">
+      <img src="https://picsum.photos/seed/bedsheet/500/350" alt="Bedsheet">
+      <div class="info">
+        <div class="title">Bedsheet (Double)</div>
+        <div class="price">₹799</div>
+        <button class="btn" onclick="addToCart(4,'Bedsheet (Double)',799,'https://picsum.photos/seed/bedsheet/500/350')">Add to Cart</button>
+      </div>
+    </div>
+
+    <div class="card" data-name="Decorative Cushion Set">
+      <img src="https://picsum.photos/seed/cushion/500/350" alt="Cushions">
+      <div class="info">
+        <div class="title">Decorative Cushion Set</div>
+        <div class="price">₹499</div>
+        <button class="btn" onclick="addToCart(5,'Decorative Cushion Set',499,'https://picsum.photos/seed/cushion/500/350')">Add to Cart</button>
+      </div>
+    </div>
+
+    <div class="card" data-name="Office Backpack">
+      <img src="https://picsum.photos/seed/backpack/500/350" alt="Backpack">
+      <div class="info">
+        <div class="title">Office Backpack</div>
+        <div class="price">₹1299</div>
+        <button class="btn" onclick="addToCart(6,'Office Backpack',1299,'https://picsum.photos/seed/backpack/500/350')">Add to Cart</button>
+      </div>
+    </div>
+
+    <div class="card" data-name="Stainless Steel Bottle">
+      <img src="https://picsum.photos/seed/bottle/500/350" alt="Bottle">
+      <div class="info">
+        <div class="title">Stainless Steel Bottle</div>
+        <div class="price">₹399</div>
+        <button class="btn" onclick="addToCart(7,'Stainless Steel Bottle',399,'https://picsum.photos/seed/bottle/500/350')">Add to Cart</button>
+      </div>
+    </div>
+
+    <div class="card" data-name="Non-stick Fry Pan">
+      <img src="https://picsum.photos/seed/pan/500/350" alt="Pan">
+      <div class="info">
+        <div class="title">Non-stick Fry Pan</div>
+        <div class="price">₹899</div>
+        <button class="btn" onclick="addToCart(8,'Non-stick Fry Pan',899,'https://picsum.photos/seed/pan/500/350')">Add to Cart</button>
+      </div>
+    </div>
+
+    <div class="card" data-name="Pressure Cooker 5L">
+      <img src="https://picsum.photos/seed/cooker/500/350" alt="Cooker">
+      <div class="info">
+        <div class="title">Pressure Cooker 5L</div>
+        <div class="price">₹1799</div>
+        <button class="btn" onclick="addToCart(9,'Pressure Cooker 5L',1799,'https://picsum.photos/seed/cooker/500/350')">Add to Cart</button>
+      </div>
+    </div>
+
+    <div class="card" data-name="Herbal Face Wash">
+      <img src="https://picsum.photos/seed/facewash/500/350" alt="Face Wash">
+      <div class="info">
+        <div class="title">Herbal Face Wash</div>
+        <div class="price">₹249</div>
+        <button class="btn" onclick="addToCart(10,'Herbal Face Wash',249,'https://picsum.photos/seed/facewash/500/350')">Add to Cart</button>
+      </div>
+    </div>
+
+    <div class="card" data-name="Aloe Vera Gel">
+      <img src="https://picsum.photos/seed/aloe/500/350" alt="Aloe Gel">
+      <div class="info">
+        <div class="title">Aloe Vera Gel</div>
+        <div class="price">₹199</div>
+        <button class="btn" onclick="addToCart(11,'Aloe Vera Gel',199,'https://picsum.photos/seed/aloe/500/350')">Add to Cart</button>
+      </div>
+    </div>
+
+    <div class="card" data-name="Sports Cap">
+      <img src="https://picsum.photos/seed/cap/500/350" alt="Cap">
+      <div class="info">
+        <div class="title">Sports Cap</div>
+        <div class="price">₹299</div>
+        <button class="btn" onclick="addToCart(12,'Sports Cap',299,'https://picsum.photos/seed/cap/500/350')">Add to Cart</button>
+      </div>
+    </div>
+
+    <div class="card" data-name="Leather Belt">
+      <img src="https://picsum.photos/seed/belt/500/350" alt="Belt">
+      <div class="info">
+        <div class="title">Leather Belt</div>
+        <div class="price">₹549</div>
+        <button class="btn" onclick="addToCart(13,'Leather Belt',549,'https://picsum.photos/seed/belt/500/350')">Add to Cart</button>
+      </div>
+    </div>
+
+    <div class="card" data-name="Running Shorts">
+      <img src="https://picsum.photos/seed/shorts/500/350" alt="Shorts">
+      <div class="info">
+        <div class="title">Running Shorts</div>
+        <div class="price">₹399</div>
+        <button class="btn" onclick="addToCart(14,'Running Shorts',399,'https://picsum.photos/seed/shorts/500/350')">Add to Cart</button>
+      </div>
+    </div>
+
+    <div class="card" data-name="Kitchen Apron Set">
+      <img src="https://picsum.photos/seed/apron/500/350" alt="Apron">
+      <div class="info">
+        <div class="title">Kitchen Apron Set</div>
+        <div class="price">₹349</div>
+        <button class="btn" onclick="addToCart(15,'Kitchen Apron Set',349,'https://picsum.photos/seed/apron/500/350')">Add to Cart</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="pager">
+    <a href="second.html">➡ Next (Page 2)</a>
+  </div>
+</main>
+
+<footer class="footer">© <span id="year"></span> Sidd Collection</footer>
+
+<!-- ===== JS (shared) ===== -->
+<script>
+  // --- Cart state ---
+  let cart = JSON.parse(localStorage.getItem("cart") || "[]");
+  const saveCart = () => localStorage.setItem("cart", JSON.stringify(cart));
+
+  function updateCartCount(){
+    const el = document.getElementById("nav-cart-count");
+    if(!el) return;
+    const total = cart.reduce((s,i)=>s+i.quantity,0);
+    el.textContent = total;
+  }
+
+  function addToCart(id,name,price,image){
+    const found = cart.find(i=>i.id===id);
+    if(found){ found.quantity += 1; }
+    else { cart.push({id,name,price,image,quantity:1}); }
+    saveCart();
+    updateCartCount();
+    alert(name + " added to cart!");
+  }
+
+  // --- Search filter ---
+  function setupSearch(){
+    const input = document.getElementById("searchBox");
+    const list = document.getElementById("productList");
+    if(!input || !list) return;
+    input.addEventListener("input", ()=>{
+      const q = input.value.trim().toLowerCase();
+      list.querySelectorAll(".card").forEach(card=>{
+        const name = (card.getAttribute("data-name")||"").toLowerCase();
+        card.style.display = name.includes(q) ? "" : "none";
+      });
+    });
+  }
+
+  // --- Clock & date ---
+  function startClock(){
+    const clock = document.getElementById("clock");
+    const dateEl = document.getElementById("date");
+    setInterval(()=>{
       const now = new Date();
-      const formatted = now.toLocaleString();
-      document.getElementById("datetime").innerText = formatted;
-    }
-    setInterval(updateDateTime, 1000);
-    updateDateTime();
+      if(clock) clock.textContent = now.toLocaleTimeString();
+      if(dateEl) dateEl.textContent = now.toLocaleDateString();
+    }, 1000);
+  }
 
-    // Add to Cart
-    function addToCart(button) {
-      const product = button.parentElement;
-      const name = product.dataset.name;
-      const price = "₹" + product.dataset.price;
-      const imgSrc = product.dataset.img;
+  // --- Footer year ---
+  document.getElementById("year").textContent = new Date().getFullYear();
 
-      let cart = JSON.parse(localStorage.getItem("cart")) || [];
-      cart.push({ name, price, imgSrc });
-      localStorage.setItem("cart", JSON.stringify(cart));
-
-      let cartCount = document.getElementById("cart-count");
-      cartCount.innerText = cart.length;
-
-      alert(`${name} added to cart!`);
-    }
-
-    // Go to Cart Button
-    function goToCart() {
-      window.location.href = "cart.html";
-    }
-
-    // On Page Load -> Refresh cart count
-    window.onload = function() {
-      let cart = JSON.parse(localStorage.getItem("cart")) || [];
-      document.getElementById("cart-count").innerText = cart.length;
-    }
- </div>
-
-  </script>
+  // Init
+  updateCartCount();
+  setupSearch();
+  startClock();
+</script>
 </body>
 </html>
-
-
-
-
-
-
 
